@@ -21,9 +21,7 @@ namespace detyra
         }
         public static string sms;   
 
-    }
-
-}
+    
       static string Dekriptimi(string ciphertext)   
 
         ciphertext = ciphertext.ToUpper();  
@@ -56,3 +54,4 @@ namespace detyra
             }
         return sms;  
 
+}
