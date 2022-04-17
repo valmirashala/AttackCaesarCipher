@@ -67,3 +67,20 @@ public static string Mesazhi(string tekstiKoduar, int celsi)
     }
     return tekstiDekoduar.ToString(); 
 }
+public static int kontrollo(string[] _tekstiKontrollues, string fjala)
+{
+    int celesi_final = 0;
+    for (int i = 0; i < _tekstiKontrollues.Length; i++)
+        if (_tekstiKontrollues[i].Length == fjala.Length)
+        {
+            celesi_final = fjala[0] - _tekstiKontrollues[i][0];
+            if (_tekstiKontrollues[i].Equals(Mesazhi(fjala, celesi_final)))
+
+                return celesi_final; // kthehet celesi final
+        }
+    return -1;
+
+}
+    }
+
+}
