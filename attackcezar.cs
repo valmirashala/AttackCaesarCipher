@@ -24,27 +24,35 @@ namespace detyra
     }
 
 }
-            List<string> list = new List<string>();
+      static string Dekriptimi(string ciphertext)   
 
-            for (int i = 0; i < Split_Mesazhi.Length; i++)
-                for (int j = 0; j < tekstiKontrollues.Length; j++)
-                    if (Split_Mesazhi[i].Length == tekstiKontrollues[j].Length)
-                        list.Add(Split_Mesazhi[i]);
-            string[] vargu = list.ToArray();
+        ciphertext = ciphertext.ToUpper();  
+        char[] alfabeti = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };  
 
-            int celesi = 0;
-            for (int i = 0; i < vargu.Length; i++)
+        char[] mesazhiEch = ciphertext.ToCharArray(); 
+        string[] tekstiKontrollues = new string[] { "EDHE", "ESHTE" };  
+
+        string[] Split_Mesazhi = ciphertext.Split(' ');   
+
+        List<string> list = new List<string>();    
+
+        for (int i = 0; i < Split_Mesazhi.Length; i++)   
+            for (int j = 0; j < tekstiKontrollues.Length; j++)   
+                if (Split_Mesazhi[i].Length == tekstiKontrollues[j].Length)  
+                    list.Add(Split_Mesazhi[i]);   
+        string[] vargu = list.ToArray(); 
+
+
+        int celesi = 0;   
+            for (int i = 0; i < vargu.Length; i++)  
             {
-                celesi = kontrollo(tekstiKontrollues, vargu[i]);
-                if (celesi != -1)
+                celesi = kontrollo(tekstiKontrollues, vargu[i].ToString()); 
+                if (celesi != -1)    
                 {
-                    sms += Mesazhi(ciphertext, celesi);
-                    MessageBox.Show("Teksti i dekripturar: " + sms);
-                    break;
+                    sms += Mesazhi(ciphertext, celesi);    
+                    break;  
 
                 }
             }
-            this.Close();
-                        }
-                    }
+        return sms;  
 
