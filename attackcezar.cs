@@ -19,11 +19,20 @@ namespace detyra
 
             Console.ReadKey();  
         }
-        public static string sms;   
+        public static string sms;
 
-    }
+        static string Dekriptimi(string ciphertext)  
+        {
 
-}
+            ciphertext = ciphertext.ToUpper();  
+
+            char[] alfabeti = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };  //varg me shkronja e alfabetit
+
+            char[] mesazhiEch = ciphertext.ToCharArray(); 
+            string[] tekstiKontrollues = new string[] { "EDHE", "ESHTE" };  
+
+            string[] Split_Mesazhi = ciphertext.Split(' ');   
+
             List<string> list = new List<string>();
 
             for (int i = 0; i < Split_Mesazhi.Length; i++)
@@ -35,7 +44,7 @@ namespace detyra
             int celesi = 0;
             for (int i = 0; i < vargu.Length; i++)
             {
-                celesi = kontrollo(tekstiKontrollues, vargu[i]);
+                celesi = kontrollo(tekstiKontrollues, vargu[i].toString);
                 if (celesi != -1)
                 {
                     sms += Mesazhi(ciphertext, celesi);
